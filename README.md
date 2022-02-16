@@ -3,6 +3,10 @@ This script is a lighter version of the Mojito-fivem qb-gangs (https://github.co
 I isolated the territories part of his script to create a configurable zone
 that will trigger a notification and a drawtext to warn you that you are in a "hostile zone"
 
+# Preview
+
+https://streamable.com/vev30g
+
 # How to add zone ?
 
 to add zone you have to go in shared/zones.lua line 7 and add your zone like this =
