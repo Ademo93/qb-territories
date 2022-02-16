@@ -77,13 +77,13 @@ CreateThread(function()
                         
                         TriggerEvent("QBCore:Notify","Vous êtes entré sur le territoire d'un gang", "error")
 
-                        -- Whilst inside the zone we send a server event for the server sided calculations
+                       
                         while insidePoint == true do
                             
                            
                                 exports['qb-drawtext']:DrawText('Zone Hostile','right')
                             
-                            -- We fetch a callback for the most reason status of the zone and send it to the NUI
+                           
                             
 
                             if not Territories[k].zone:isPointInside(GetEntityCoords(PlayerPed)) then
