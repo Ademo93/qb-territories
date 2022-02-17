@@ -75,13 +75,13 @@ CreateThread(function()
                         insidePoint = true
                         activeZone = Territories[k].id
                         
-                        TriggerEvent("QBCore:Notify","Vous êtes entré sur le territoire d'un gang", "error")
+                        TriggerEvent("QBCore:Notify",Lang:t("error.enter_gangzone"), "error")
 
                        
                         while insidePoint == true do
                             
                            
-                                exports['qb-drawtext']:DrawText('Zone Hostile','right')
+                                exports['qb-drawtext']:DrawText(Lang:t("error.hostile_zone"),'right')
                             
                            
                             
@@ -91,7 +91,7 @@ CreateThread(function()
                                 insidePoint = false
                                 activeZone = nil
 
-                                QBCore.Functions.Notify("Vous avez quitté le territoire d'un gang", "error")
+                                QBCore.Functions.Notify(Lang:t("error.left_gangzone"), "error")
 
                                 Wait(1000)
 
