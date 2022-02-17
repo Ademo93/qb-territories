@@ -46,7 +46,7 @@ CreateThread(function()
 
 
         local blip2 = AddBlipForCoord(v.centre.x, v.centre.y, v.centre.z)
-        SetBlipSprite (blip2, 437)
+        SetBlipSprite (blip2, v.blip)
         SetBlipDisplay(blip2, 4)
         SetBlipAsShortRange(blip2, true)
         SetBlipColour(blip2, Zones["Colours"][v.winner] ~= nil and Zones["Colours"][v.winner] or Zones["Colours"].neutral)
