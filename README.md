@@ -7,6 +7,11 @@ that will trigger a notification and a drawtext to warn you that you are in a "h
 
 https://streamable.com/vev30g
 
+# Update
+
+- Multi-Languages support
+- Config blips for each zone
+
 # How to add zone ?
 
 to add zone you have to go in shared/zones.lua line 7 and add your zone like this =
