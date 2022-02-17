@@ -51,7 +51,7 @@ CreateThread(function()
         SetBlipAsShortRange(blip2, true)
         SetBlipColour(blip2, Zones["Colours"][v.winner] ~= nil and Zones["Colours"][v.winner] or Zones["Colours"].neutral)
         BeginTextCommandSetBlipName("STRING")
-        AddTextComponentSubstringPlayerName("Zone Hostile")
+        AddTextComponentSubstringPlayerName(Lang:t("error.hostile_zone"))
         EndTextCommandSetBlipName(blip2)
 
         Territories[k] = {
