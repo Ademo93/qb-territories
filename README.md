@@ -11,6 +11,7 @@ https://streamable.com/vev30g
 
 - Multi-Languages support
 - Config blips for each zone
+- GangName on Blips
 
 # How to add zone ?
 
@@ -19,17 +20,13 @@ to add zone you have to go in shared/zones.lua line 7 and add your zone like thi
 [4] = {
             centre = vector3(37.38, -1880.71, 22.34),
             radius = 120.0,
-            occupants = {},
             winner = "Ballas",
-            --not in use yet
             blip = 437
         },
 [5] = {
             centre = vector3(x, y, z),
             radius = 90.0,
-            occupants = {},
-            winner = "the gang color",
-            --not in use yet
+            winner = "The gang color/name",
             blip = 437
 }
 ```
@@ -40,7 +37,7 @@ Remember that the winner variable is the color of the gang that you configure li
 ["Colours"] = {
 
         ["Ballas"] = 27,
-        ["the gang color"] = 10
+        ["the gang color/name"] = 10
 
 }
 ```
