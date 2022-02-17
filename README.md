@@ -41,3 +41,8 @@ Remember that the winner variable is the color of the gang that you configure li
 ```
 You can find color id here -> https://wiki.rage.mp/index.php?title=Blip::color
 
+# Requirements
+
+- qb-drawtext
+- PolyZone
+
