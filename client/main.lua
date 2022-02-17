@@ -91,7 +91,7 @@ CreateThread(function()
                                 insidePoint = false
                                 activeZone = nil
 
-                                QBCore.Functions.Notify(Lang:t("error.left_gangzone"), "error")
+                                QBCore.Functions.Notify(Lang:t("error.leave_gangzone"), "error")
 
                                 Wait(1000)
 
