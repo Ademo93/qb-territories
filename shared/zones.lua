@@ -11,7 +11,6 @@ Zones = {
             radius = 90.0,
             occupants = {"tarteret"},
             winner = "tarteret",
-            --not in use yet
             blip = 437
         },
 
@@ -20,7 +19,6 @@ Zones = {
             radius = 90.0,
             occupants = {},
             winner = "Marabunta",
-            --not in use yet
             blip = 437
         },
 
@@ -29,7 +27,6 @@ Zones = {
             radius = 90.0,
             occupants = {},
             winner = "asteq",
-            --not in use yet
             blip = 437
         },
 
@@ -38,7 +35,6 @@ Zones = {
             radius = 120.0,
             occupants = {},
             winner = "Ballas",
-            --not in use yet
             blip = 437
         }
     },
