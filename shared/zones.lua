@@ -9,15 +9,13 @@ Zones = {
         [1] = {
             centre = vector3(755.02, -298.71, 59.89),
             radius = 90.0,
-            occupants = {"tarteret"},
-            winner = "tarteret",
+            winner = "Tarteret",
             blip = 437
         },
 
         [2] = {
             centre = vector3(1373.51, -1534.22, 56.22),
             radius = 90.0,
-            occupants = {},
             winner = "Marabunta",
             blip = 437
         },
@@ -25,15 +23,13 @@ Zones = {
         [3] = {
             centre = vector3(1281.96, -1733.7, 52.53),
             radius = 90.0,
-            occupants = {},
-            winner = "asteq",
+            winner = "Aztecas",
             blip = 437
         },
 
         [4] = {
             centre = vector3(37.38, -1880.71, 22.34),
             radius = 120.0,
-            occupants = {},
             winner = "Ballas",
             blip = 437
         }
@@ -41,8 +37,8 @@ Zones = {
 
     ["Colours"] = {
         ["Police"] = 38,
-        ["tarteret"] = 79,
-        ["asteq"] = 32,
+        ["Tarteret"] = 4,
+        ["Aztecas"] = 32,
         ["Ballas"] = 27,
         ["Vagos"] = 5,
         ["Marabunta"] = 29,
