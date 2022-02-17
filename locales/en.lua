@@ -5,7 +5,7 @@ local Translations = {
     	hostile_zone = "Hostile Zone",
     }
 }
-Lang = Locales:new({
+Lang = Locale:new({
     phrases = Translations,
     warnOnMissing = true
 })
