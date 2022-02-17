@@ -11,5 +11,8 @@ server_scripts {
 	'server/main.lua'
 }
 
-shared_scripts { "shared/*.lua" }
+shared_scripts { 
+	'shared/*.lua',
+	'locales/en.lua', --change language here
+}
 
