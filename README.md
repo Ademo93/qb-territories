@@ -7,6 +7,8 @@ that will trigger a notification and a drawtext to warn you that you are in a "h
 
 https://streamable.com/vev30g
 
+https://streamable.com/gs50m7
+
 # Update
 
 - Multi-Languages support
