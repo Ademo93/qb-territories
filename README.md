@@ -12,6 +12,7 @@ https://streamable.com/vev30g
 - Multi-Languages support
 - Config blips for each zone
 - GangName on Blips
+- Zone Control
 
 # How to add zone ?
 
