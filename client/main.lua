@@ -179,35 +179,35 @@ CreateThread(function()
     end
 end)
 
-RegisterNetEvent('qb-territories:client:openshop', function()
-    TriggerServerEvent("jim-shops:ShopOpen", "shop", "normal", Zones.Items)
-end)
+--RegisterNetEvent('qb-territories:client:openshop', function()
+--    TriggerServerEvent("jim-shops:ShopOpen", "shop", "normal", Zones.Items)
+--end)
 
 RegisterNetEvent('qb-territories:client:reward', function(winner)
     if Haswon then
         TriggerServerEvent("qb-territories:server:addmoney", 4000)
         --print(winner)
         --QBCore.Functions.Notify("putangina testing", "error")
-        --[[exports['qb-target']:SpawnPed({ --couldn't get this to work, dont know why.
-            model = 'a_m_m_indian_01', -- This is the ped model that is going to be spawning at the given coords
-            coords = vector4(755.02, -298.71, 60.89, 180.83), -- This is the coords that the ped is going to spawn at, always has to be a vector4 and the w value is the heading
-            minusOne = true, -- Set this to true if your ped is hovering above the ground but you want it on the ground (OPTIONAL)
-            freeze = true, -- Set this to true if you want the ped to be frozen at the given coords (OPTIONAL)
-            invincible = true, -- Set this to true if you want the ped to not take any damage from any source (OPTIONAL)
-            blockevents = true, -- Set this to true if you don't want the ped to react the to the environment (OPTIONAL)
-            scenario = 'WORLD_HUMAN_AA_COFFEE', -- This is the scenario that will play the whole time the ped is spawned, this cannot pair with anim and animDict (OPTIONAL)
-            target = { -- This is the target options table, here you can specify all the options to display when targeting the ped (OPTIONAL)
-              options = { -- This is your options table, in this table all the options will be specified for the target to accept
-                { -- This is the first table with options, you can make as many options inside the options table as you want
-                  num = 1, -- This is the position number of your option in the list of options in the qb-target context menu (OPTIONAL)
-                  type = "client", -- This specifies the type of event the target has to trigger on click, this can be "client", "server", "command" or "qbcommand", this is OPTIONAL and will only work if the event is also specified
-                  event = "qb-phone:client:GiveContactDetails", -- This is the event it will trigger on click, this can be a client event, server event, command or qbcore registered command, NOTICE: Normal command can't have arguments passed through, QBCore registered ones can have arguments passed through
-                  icon = 'fas fa-example', -- This is the icon that will display next to this trigger option
-                  label = 'Test', -- This is the label of this option which you would be able to click on to trigger everything, this has to be a string
-                  --gang = {["307b"] = 1, ["vct"] = 1},  
+        --[[exports['qb-target']:SpawnPed({ --    couldn't get this to work, dont know why.   --
+            model = 'a_m_m_indian_01', 
+            coords = vector4(755.02, -298.71, 60.89, 180.83), 
+            minusOne = true, 
+            freeze = true, 
+            invincible = true,
+            blockevents = true,
+            scenario = 'WORLD_HUMAN_AA_COFFEE',  
+            target = {
+              options = { 
+                { 
+                  num = 1, 
+                  type = "client",
+                  event = "qb-phone:client:GiveContactDetails",
+                  icon = 'fas fa-example',
+                  label = 'Test', 
+                  --gang = {["307b"] = 1, ["vct"] = 1},  yes, i know this isnt how it's supposed to be, i just changed it to these just to test
                 }
               },
-              distance = 2.5, -- This is the distance for you to be at for the target to turn blue, this is in GTA units and has to be a float value
+              distance = 2.5, 
             },
           })]]
         Haswon = false
