@@ -7,77 +7,34 @@ Zones = {
     ["Territories"] = {
 
         [1] = {
-            centre = vector3(755.02, -298.71, 59.89),
-            radius = 90.0,
-            winner = "tarteret",
-            occupants={
-                ["tarteret"] = {
-                    label = "tarteret",
-                    score = 60,
-                },
-            },
-            blip = 437
+            centre = vector3(1467.97, -1507.18, 64.09), 
+            radius = 180.0,
+            winner = "neutral",
+            occupants = {},
+            blip = 437,
+            winnerblip = 84, --Blip will change to this after zone has been captured.
         },
 
-        [2] = {
-            centre = vector3(1373.51, -1534.22, 56.22),
-            radius = 90.0,
-            winner = "marabunta",
-            occupants={},
-            blip = 437
-        },
-
-        [3] = {
-            centre = vector3(1281.96, -1733.7, 52.53),
-            radius = 90.0,
-            winner = "aztecas",
-            occupants={},
-            blip = 437
-        },
-
-        [4] = {
-            centre = vector3(37.38, -1880.71, 22.34),
-            radius = 120.0,
-            winner = "ballas",
-            occupants={},
-            blip = 437
-        }
     },
 
     ["Colours"] = {
-        ["tarteret"] = 4,
-        ["vagos"] = 5,
+        ["neutral"] = 0,
+        ["307 Boyz"] = 4,
+        ["Vercetti Cartel"] = 6,
     },
 
     ["Gangs"] = {
-        ["tarteret"] = {
+        ["307b"] = {
             color = 4,
-            name = "Tarteret",
+            name = "307 Boyz's Turf",
         },
-        ["aztecas"] =  {
-            color = 32,
-            name = "Aztecas",
-        },
-        ["ballas"] = {
-            color = 27,
-            name = "Ballas",
-        },
-        ["vagos"] = {
-            color = 5,
-            name = "Vagos",
-        },
-        ["marabunta"] = {
-            color = 29,
-            name = "Marabunta",
-        },
-        ["mafia"] = {
-            color = 44,
-            name = "Mafia",
+        ["vct"] = {
+            color = 6,
+            name = "Vercetti Cartel's Turf",
         },
         ["neutral"] = {
             color = 0,
-            name = "",
+            name = "Turf War",
         },
-    }
-
+    },
 }
