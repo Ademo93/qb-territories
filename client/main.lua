@@ -1,9 +1,9 @@
 local Territories = {}
 local insidePoint = false
 local activeZone = nil
-
+local Haswon = true
 local QBCore = exports['qb-core']:GetCoreObject()
-
+local messagesent = false
 isLoggedIn = false
 PlayerGang = {}
 PlayerJob = {}
@@ -40,12 +40,12 @@ CreateThread(function()
             debugPoly = Zones["Config"].debug,
         })
 
-        local blip = AddBlipForRadius(v.centre.x, v.centre.y, v.centre.z, v.radius)
+        blip = AddBlipForRadius(v.centre.x, v.centre.y, v.centre.z, v.radius)
         SetBlipAlpha(blip, 80) -- Change opacity here
         SetBlipColour(blip, Zones["Gangs"][v.winner].color ~= nil and Zones["Gangs"][v.winner].color or Zones["Gangs"]["neutral"].color)
 
 
-        local blip2 = AddBlipForCoord(v.centre.x, v.centre.y, v.centre.z)
+        blip2 = AddBlipForCoord(v.centre.x, v.centre.y, v.centre.z)
         SetBlipSprite (blip2, v.blip)
         SetBlipDisplay(blip2, 4)
         SetBlipScale(blip2, 0.8)
@@ -65,14 +65,47 @@ end)
 
 RegisterNetEvent("qb-gangs:client:updateblips")
 AddEventHandler("qb-gangs:client:updateblips", function(zone, winner)
-    local colour = Zones["Colours"][winner]
-   -- local blip = AddBlipForRadius(Zones["Territories"][zone].centre.x, Zones["Territories"][zone].centre.y, Zones["Territories"][zone].centre.z, Zones["Territories"][zone].radius)
+    RemoveBlip(blip)
+    RemoveBlip(blip2)
+    TriggerEvent('qb-territories:client:reward')
+    for k, v in pairs(Zones["Territories"]) do
+        local zone = CircleZone:Create(v.centre, v.radius, {
+            name = "greenzone-"..k,
+            debugPoly = Zones["Config"].debug,
+        })
+
+        blip = AddBlipForRadius(v.centre.x, v.centre.y, v.centre.z, v.radius)
+        SetBlipAlpha(blip, 80) -- Change opacity here
+        SetBlipColour(blip, Zones["Colours"][winner])
+
+
+        blip2 = AddBlipForCoord(v.centre.x, v.centre.y, v.centre.z)
+        SetBlipSprite (blip2, v.winnerblip)
+        SetBlipDisplay(blip2, 4)
+        SetBlipScale(blip2, 0.8)
+        SetBlipAsShortRange(blip2, true)
+        SetBlipColour(blip2, Zones["Colours"][winner])
+        BeginTextCommandSetBlipName("STRING")
+        AddTextComponentSubstringPlayerName("Turf of "..winner)
+        EndTextCommandSetBlipName(blip2)
+        
+        Territories[k] = {
+            zone = zone,
+            id = k,
+            blip = blip
+        }
+    end
+    
+    
+    --[[local colour = Zones["Colours"][winner]
+    --local blip = AddBlipForRadius(Zones["Territories"][zone].centre.x, Zones["Territories"][zone].centre.y, Zones["Territories"][zone].centre.z, Zones["Territories"][zone].radius)
+    --SetBlipAlpha(blip, 80) -- Change opacity here
     local blip = Territories[zone].blip
     SetBlipColour(blip,colour)
     BeginTextCommandSetBlipName("STRING")
     AddTextComponentSubstringPlayerName(winner)
     EndTextCommandSetBlipName(blip)
-
+    TriggerEvent('qb-territories:client:reward', winner)]]
 
  
 end)
@@ -123,7 +156,7 @@ CreateThread(function()
                     TriggerEvent("QBCore:Notify",Lang:t("error.enter_gangzone"), "error")
           
                     while insidePoint == true do   
-                        exports['qb-drawtext']:DrawText(Lang:t("error.hostile_zone"),'right')
+                        exports['qb-drawtext']:DrawText(Lang:t("error.hostile_zone"),'left')
                         if PlayerGang.name ~= "none" then
                             TriggerServerEvent("qb-gangs:server:updateterritories", activeZone, true) 
                         end   
@@ -146,3 +179,37 @@ CreateThread(function()
     end
 end)
 
+--RegisterNetEvent('qb-territories:client:openshop', function()
+--    TriggerServerEvent("jim-shops:ShopOpen", "shop", "normal", Zones.Items)
+--end)
+
+RegisterNetEvent('qb-territories:client:reward', function(winner)
+    if Haswon then
+        TriggerServerEvent("qb-territories:server:addmoney", 4000)
+        --print(winner)
+        --QBCore.Functions.Notify("putangina testing", "error")
+        --[[exports['qb-target']:SpawnPed({ --    couldn't get this to work, dont know why.   --
+            model = 'a_m_m_indian_01', 
+            coords = vector4(755.02, -298.71, 60.89, 180.83), 
+            minusOne = true, 
+            freeze = true, 
+            invincible = true,
+            blockevents = true,
+            scenario = 'WORLD_HUMAN_AA_COFFEE',  
+            target = {
+              options = { 
+                { 
+                  num = 1, 
+                  type = "client",
+                  event = "qb-phone:client:GiveContactDetails",
+                  icon = 'fas fa-example',
+                  label = 'Test', 
+                  --gang = {["307b"] = 1, ["vct"] = 1},  yes, i know this isnt how it's supposed to be, i just changed it to these just to test
+                }
+              },
+              distance = 2.5, 
+            },
+          })]]
+        Haswon = false
+    end
+end)

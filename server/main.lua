@@ -36,7 +36,7 @@ AddEventHandler("qb-gangs:server:updateterritories", function(zone, inside)
     local Player = QBCore.Functions.GetPlayer(src)
     local Gang = Player.PlayerData.gang
     local gangMemberConnected = 0
-    local Territory = Zones["Territories"][zone]
+    Territory = Zones["Territories"][zone]
 
     if Territory ~= nil then
         -- If they're not in a gang or they're not a cop just ignore them
@@ -61,12 +61,17 @@ AddEventHandler("qb-gangs:server:updateterritories", function(zone, inside)
                         if score < Zones["Config"].minScore and Territory.winner ~= Gang.label then
                             if isContested(Territory.occupants) == "" then
                                 Territory.occupants[Gang.label].score = Territory.occupants[Gang.label].score + 1
-                                TriggerClientEvent('QBCore:Notify',source,"Taking Zone Progress "..Territory.occupants[Gang.label].score.."/"..Zones["Config"].minScore, "success")
-
+                                TriggerClientEvent('QBCore:Notify',source,"Capturing Turf. Progress "..Territory.occupants[Gang.label].score.."/"..Zones["Config"].minScore, "info", 50)
+                                if Territory.occupants[Gang.label].score == 5 then
+                                    -- you can add custom event for notification on this line. TriggerEvent('template:server:sendchatmessage', "A Turf war zone is being captured. Gang members, hurry up and intercept!", "fa-solid fa-skull", "Turf War", "#cccccc") --message, icon, category, color(hex)
+                                end
+                            else
+                                TriggerClientEvent('QBCore:Notify',source,"You are being contested by another gang! Kill them all!", "error", 50)
                             end
                         else
                             Territory.winner = Gang.label
-                            TriggerClientEvent("qb-gangs:client:updateblips",source, zone, Gang.label)
+                            TriggerClientEvent("qb-gangs:client:updateblips", source, zone, Gang.label)                
+                            --print("success "..Gang.name)
                             Wait(1000)
                         end
                     else
@@ -81,4 +86,14 @@ AddEventHandler("qb-gangs:server:updateterritories", function(zone, inside)
     end
 end)
 
-
+RegisterNetEvent("qb-territories:server:addmoney", function(amount)
+    for k, t in pairs(QBCore.Functions.GetPlayers()) do
+        local Player = QBCore.Functions.GetPlayer(t)
+        local Gang = Player.PlayerData.gang
+        print(Gang.label.." / "..Territory.winner)
+        if Gang.label == Territory.winner then
+            Player.Functions.AddMoney('cash', amount)
+            
+        end
+    end
+end)
